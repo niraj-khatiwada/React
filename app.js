@@ -1,13 +1,13 @@
-class Welcome extends React.Component {
+class Play extends React.Component {
   render() {
     return (
       <div>
-        <Hello />
-        <Form />
-        <Greetings value= {[{1:'one', 2:"two"}]} />
+        <h1>Start the game</h1>
+        <Machine items={['🥝', '🍎', '🍑']} />
+        <Machine items={['🥝', '🍎', '🍑']} />
       </div>
     )
   }
 }
 
-ReactDOM.render(<Welcome />, document.querySelector('.greetings'))
+ReactDOM.render(<Play />, document.querySelector('.slotMachine'))
