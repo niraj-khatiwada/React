@@ -3,11 +3,13 @@ class Play extends React.Component {
     return (
       <div>
         <h1>Start the game</h1>
-        <Machine items={['🥝', '🍎', '🍑']} />
-        <Machine items={['🥝', '🍎', '🍑']} />
+        <Machine />
       </div>
     )
   }
 }
 
-ReactDOM.render(<Play />, document.querySelector('.slotMachine'))
+ReactDOM.render(
+  <Play items={['🥝', '🍎', '🍑']} />,
+  document.querySelector('.slotMachine')
+)
