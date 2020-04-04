@@ -1,6 +1,0 @@
-.Pokecard{
-    display: grid;
-    grid-template-columns: repeat(4, 20%);
-    justify-content: center;
-    gap: 1rem;
-}

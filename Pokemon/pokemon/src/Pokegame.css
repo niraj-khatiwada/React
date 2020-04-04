@@ -1,17 +1,23 @@
+.Pokegame {
+  box-shadow: 5px 5px 10px black;
+  background-color: #fff;
+  width: 20rem;
+}
+.Pokegame-details {
+  text-align: center;
+  background-color: white;
+  padding: 1rem;
+}
+.Pokegame-image img {
+  width: 100%;
+}
+.Pokegame-image {
+  border: 1rem solid white;
+}
+.isWinner {
+  background-color: green;
+}
 
-.Pokegame{
-    box-shadow: 5px 5px 10px black;
-    background-color: #e1f4f3;
-    width: 20rem;
-}
-.Pokegame-details{
-    text-align: center;
-    background-color: white;
-    padding: 1rem;
-}
-.Pokegame-image img{
-    width: 100%;
-}
-.Pokegame-image{
-    border: 1rem solid white;
+.isLoser {
+  background-color: red;
 }
