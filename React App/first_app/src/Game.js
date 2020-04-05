@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
 
 class Game extends Component {
-  state = {
-    score: 0,
-    isWinning: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      num: 0,
+      isWinning: false,
+    }
   }
-
-  changeScore = () => {
-    this.setState({ score: 10 })
+  generateRandomNumber = () => {
+    let randNum = Math.floor(Math.random() * 10)
+    return this.setState({ num: randNum })
   }
-  render() {
+  render = () => {
     return (
-      <div>
-        <h1>Your score is: {this.state.score}</h1>
-        <h1>You are winning: {`${this.state.isWinning}`}</h1>
-        <button onClick={this.changeScore}>Click</button>
+      <div className="Game">
+        <h1>Number is: {this.state.num}</h1>
+        {this.state.num !== 7 ? (
+          <button onClick={this.generateRandomNumber}>
+            Generate random Number{' '}
+          </button>
+        ) : (
+          <h1>You won</h1>
+        )}
       </div>
     )
   }
