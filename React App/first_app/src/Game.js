@@ -4,22 +4,47 @@ class Game extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      num: 0,
-      isWinning: false,
+      icon: ['angry'],
     }
   }
+  static defaultProps = {
+    icons: [
+      'angry',
+      'anchor',
+      'archive',
+      'at',
+      'archway',
+      'baby',
+      'bell',
+      'bolt',
+      'bone',
+      'car',
+      'city',
+      'cloud',
+      'couch',
+    ],
+  }
 
-  increaseStateBy5 = (st) => {
-    return { num: st.num + 5 }
+  getRandomIcons = () => {
+    const randIcon = this.props.icons[
+      Math.floor(Math.random() * this.props.icons.length)
+    ]
+
+    return this.setState({ icon: [...this.state.icon, randIcon] })
   }
-  generateRandomNumber = () => {
-    return this.setState(this.increaseStateBy5)
+  resetState = () => {
+    return this.setState({ icon: [] })
   }
+
   render = () => {
+    const icons = this.state.icon.map((value) => {
+      return <i className={`fas fa-${value}`}></i>
+    })
     return (
       <div className="Game">
-        <h1>Number is: {this.state.num}</h1>
-        <button onClick={this.generateRandomNumber}>Click</button>
+        Icons: {icons}
+        <button onClick={this.getRandomIcons}>Click</button>
+        <button onClick={this.resetState}>Reset</button>
       </div>
     )
   }
