@@ -6,6 +6,7 @@ import Coin from './Coin'
 class FlipACoin extends Component {
   constructor(props) {
     super(props)
+    this.flipCoin = this.flipCoin.bind(this)
     this.state = {
       side: 'heads',
       totalFlips: 0,
@@ -26,7 +27,7 @@ class FlipACoin extends Component {
       return 'tails'
     }
   }
-  flipCoin = () => {
+  flipCoin() {
     const hORt = this.randomFlip()
     this.setState((preState) => {
       let newState = {
