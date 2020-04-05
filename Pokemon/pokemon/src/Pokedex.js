@@ -46,9 +46,13 @@ class Pokedex extends Component {
     }, 0)
     let arrayOne
     let arrayTwo
-    totaExperience1 > totaExperience2
-      ? (arrayOne = 'isWinner')
-      : (arrayTwo = 'isWinner')
+    if (totaExperience1 > totaExperience2) {
+      arrayOne = 'isWinner'
+      arrayTwo = 'isLoser'
+    } else {
+      arrayOne = 'isLoser'
+      arrayTwo = 'isWinner'
+    }
     return (
       <div className="Pokedex">
         <Pokegame pokemon={array1} winner={arrayOne} />
