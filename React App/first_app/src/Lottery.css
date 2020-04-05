@@ -1,0 +1,11 @@
+.Lottery-Flex{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    width: 100vw;
+}
+
+.Lottery-card{
+    /* box-shadow: 5px 5px 10px black; */
+    padding: 1rem;
+}
