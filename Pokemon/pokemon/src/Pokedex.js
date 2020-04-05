@@ -33,10 +33,10 @@ class Pokedex extends Component {
   render() {
     const array1 = []
     const array2 = [...this.props.pokemon]
-    while (array1.length !== 4) {
+    while (array1.length !== array2.length) {
       const randPoke = Math.floor(Math.random() * array2.length)
       array1.push(array2[randPoke])
-      array2.splice(array2.indexOf(randPoke, 1))
+      array2.splice(randPoke, 1)
     }
     const totaExperience1 = array1.reduce((preval, currval) => {
       return preval + currval.base_experience
