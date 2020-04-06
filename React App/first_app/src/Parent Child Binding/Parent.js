@@ -6,7 +6,7 @@ import Child from './Child'
 class Parent extends Component {
   constructor(props) {
     super(props)
-    this.state = { nums: [1, 2, 3, 4, 5, 6] }
+    this.state = { nums: [1, 2, 2, 3, 4, 5, 6] }
     this.removeItem = this.removeItem.bind(this)
   }
 
@@ -14,21 +14,23 @@ class Parent extends Component {
     console.log('Removing', item)
     this.setState((preState) => {
       return {
-        nums: preState.nums.filter((value) => {
-          return value !== item
+        nums: preState.nums.filter((value, index) => {
+          return index !== item
         }),
       }
     })
   }
   render() {
-    const nums = this.state.nums.map((value) => {
+    const nums = this.state.nums.map((value, index) => {
       return (
-        <li>
-          <Child num={value} remove={this.removeItem} item={value} />
-        </li>
+        <Child num={value} remove={this.removeItem} item={index} key={index} />
       )
     })
-    return <div className="Parent">{nums}</div>
+    return (
+      <div className="Parent">
+        <ul>{nums}</ul>
+      </div>
+    )
   }
 }
 

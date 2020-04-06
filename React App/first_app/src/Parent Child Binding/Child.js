@@ -4,20 +4,19 @@ import './Child.css'
 class Child extends Component {
   constructor(props) {
     super(props)
-    this.handlieRemove = this.handlieRemove.bind(this)
+    this.handleRemove = this.handleRemove.bind(this)
   }
-  handlieRemove() {
+  handleRemove() {
     this.props.remove(this.props.item)
   }
   render() {
     return (
-      <div className="Child">
+      <li>
         {this.props.num}
-        <button onClick={this.handlieRemove}>x</button>
-      </div>
+        <button onClick={this.handleRemove}>x</button>
+      </li>
     )
   }
 }
 
 export default Child
-    
