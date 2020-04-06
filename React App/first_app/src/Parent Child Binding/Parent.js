@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Parent.css'
 
+import uuid from 'uuid/v4'
+
 import Child from './Child'
 
 class Parent extends Component {
@@ -23,7 +25,7 @@ class Parent extends Component {
   render() {
     const nums = this.state.nums.map((value, index) => {
       return (
-        <Child num={value} remove={this.removeItem} item={index} key={index} />
+        <Child num={value} remove={this.removeItem} item={index} key={uuid()} />
       )
     })
     return (
