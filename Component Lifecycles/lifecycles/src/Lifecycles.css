@@ -1,0 +1,28 @@
+
+.loader-true {
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border-radius: 100%;
+  border-top: 0.5em solid #ff0000;
+  border-right: 0.5em solid green;
+  border-bottom: 0.5em solid blue;
+  border-left: 0.5em solid teal;
+  transition: all 0.2s ease-in-out;
+  animation: loading-animation 3s 1 ease-in-out;
+}
+
+@keyframes loading-animation {
+  25% {
+    transform: rotateZ(90deg);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  75% {
+    transform: rotateZ(270deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
