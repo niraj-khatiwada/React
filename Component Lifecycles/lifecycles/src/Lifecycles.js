@@ -8,24 +8,30 @@ class Lifecycles extends Component {
     super(props)
     console.log('Inside Contructor')
     this.state = {
-      quote: '',
-      isLoading: true,
+      username: '',
+      profileImage: '',
     }
   }
-  componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/todos/1').then((res) => {
-      setTimeout(() => {
-        console.log(res.data.title)
-        this.setState({ quote: res.data.title, isLoading: false })
-      }, 3000)
+  async componentDidMount() {
+    console.log('Inside ComponentDidMount')
+    const url = `https://api.github.com/users/${this.props.username}`
+    await axios.get(url).then((res) => {
+      console.log(res.data)
+      this.setState({
+        username: res.data.name,
+        profileImage: res.data.avatar_url,
+      })
     })
   }
+  componentDidUpdate() {
+    console.log('Component did update')
+  }
   render() {
+    console.log('Inside Render')
     return (
       <div className="Lifecycles">
-        <h1>Stupid Quotes</h1>
-        <div className={`loader-${this.state.isLoading}`}></div>
-        <h1>{this.state.quote}</h1>
+        <h1>{this.state.username}</h1>
+        <img src={this.state.profileImage} />
       </div>
     )
   }

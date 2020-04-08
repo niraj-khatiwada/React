@@ -5,7 +5,10 @@ import Lifecycles from './Lifecycles'
 function App() {
   return (
     <div className="App">
-      <Lifecycles />
+      <Lifecycles username="niraj-khatiwada" />
+      <Lifecycles username="facebook" />
+      <Lifecycles username="colt" />
+      <Lifecycles username="instagram" />
     </div>
   )
 }
