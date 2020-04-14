@@ -1,50 +1,73 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { Component } from 'react'
 import './App.css'
 
-import Niraj from './Niraj'
-import Button from './Button'
+import { Route, Switch } from 'react-router-dom'
 
-import { Route, Switch, Link } from 'react-router-dom'
+import DogList from './DogList'
+import Dog from './Dog'
 
-const Roll = () => <h1>13</h1>
+import one from './Images/one.jpg'
+import two from './Images/two.jpg'
+import three from './Images/three.jpg'
 
-const Age = () => <h1>23</h1>
+class App extends Component {
+  static defaultProps = {
+    dogs: [
+      {
+        name: 'Whiskey',
+        age: 5,
+        src: one,
+        facts: [
+          'Whiskey loves eating popcorn.',
+          'Whiskey is a terrible guard dog.',
+          'Whiskey wants to cuddle with you!',
+        ],
+      },
+      {
+        name: 'Hazel',
+        age: 3,
+        src: two,
+        facts: [
+          'Hazel has soooo much energy!',
+          'Hazel is highly intelligent.',
+          'Hazel loves people more than dogs.',
+        ],
+      },
+      {
+        name: 'Tubby',
+        age: 4,
+        src: three,
+        facts: [
+          'Tubby is not the brightest dog',
+          'Tubby does not like walks or exercise.',
+          'Tubby loves eating food.',
+        ],
+      },
+    ],
+  }
 
-const Address = () => <h1>Bharatpur Chitwan</h1>
-
-const HelloWorld = () => <h1>Hello World</h1>
-
-function App() {
-  return (
-    <div className="App">
-      <Button />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-        <Link to="/name/address">Address</Link>
+  render() {
+    return (
+      <div className="App">
         <Switch>
-          <Route exact path="/name" component={HelloWorld} />
           <Route
             exact
-            path="/name/:name"
+            path="/dogs"
             render={(routeProps) => (
-              <Niraj name={routeProps.match.params.name} />
+              <DogList dogList={this.props.dogs} routeProps={routeProps} />
             )}
           />
           <Route
-            path="/name/:name/age/:age"
-            render={(routeProps) => <Niraj pathParams={routeProps} />}
+            exact
+            path="/dogs/:name"
+            render={(routeProps) => (
+              <Dog dogList={this.props.dogs} routeProps={routeProps} />
+            )}
           />
         </Switch>
-      </header>
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
 export default App

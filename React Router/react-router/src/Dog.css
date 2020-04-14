@@ -1,0 +1,11 @@
+.Dog {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Dog-card {
+  width: 30rem;
+  box-shadow: 5px 5px 10px grey;
+  
+}
