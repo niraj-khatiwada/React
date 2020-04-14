@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 
 class Niraj extends Component {
-  componentDidMount() {
-    console.log('Component did mount')
-  }
-  componentWillUnmount() {
-    console.log('Unmount')
-  }
   render() {
-    console.log('Component did render')
-    return <h1>{this.props.name}</h1>
+    return this.props.name === 'address' ? (
+      <h1>Bharatpur</h1>
+    ) : (
+      <h1>404 not found</h1>
+    )
   }
 }
 
 export default Niraj
- 

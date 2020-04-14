@@ -4,7 +4,7 @@ import './App.css'
 
 import Niraj from './Niraj'
 
-import { Route, Switch, NavLink } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 
 const Roll = () => <h1>13</h1>
 
@@ -25,48 +25,16 @@ function App() {
         <a className="App-link" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
-        <nav>
-          <a href="/">/</a>
-          <a href="/name">Name</a>
-          <a href="/name/roll">Roll</a>
-          <a href="/name/age">Age</a>
-          <a href="/address">Address</a>
-        </nav>
-        <nav>
-          <NavLink exact to="/" activeClassName="active-link">
-            /
-          </NavLink>
-          <NavLink exact to="/name/c" activeClassName="active-link">
-            >NameC
-          </NavLink>
-          <NavLink exact to="/name/r" activeClassName="active-link">
-            >NameR
-          </NavLink>
-          <NavLink exact to="/name/roll" activeClassName="active-link">
-            >Roll
-          </NavLink>
-          <NavLink exact to="/name/age" activeClassName="active-link">
-            >Age
-          </NavLink>
-          <NavLink exact to="/address" activeClassName="active-link">
-            >Address
-          </NavLink>
-        </nav>
+        <Link to="/name/address">Address</Link>
         <Switch>
-          <Route exact path="/" component={HelloWorld} />
+          <Route exact path="/name" component={HelloWorld} />
           <Route
             exact
-            path="/name/c"
-            component={() => <Niraj name="Niraj Khatiwada Component prop" />}
+            path="/name/:name"
+            render={(routeProps) => (
+              <Niraj name={routeProps.match.params.name} />
+            )}
           />
-          <Route
-            exact
-            path="/name/r"
-            render={() => <Niraj name="Niraj Khatiwada Render prop" />}
-          />
-          <Route exact path="/name/roll" component={Roll} />
-          <Route exact path="/name/age" component={Age} />
-          <Route exact path="/address" component={Address} />
         </Switch>
       </header>
     </div>
