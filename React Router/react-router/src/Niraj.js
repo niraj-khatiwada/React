@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import Button from './Button'
 
 class Niraj extends Component {
+ 
   render() {
-    return this.props.name === 'address' ? (
-      <h1>Bharatpur</h1>
-    ) : (
-      <h1>404 not found</h1>
+    const age = this.props.pathParams.match.params.age
+    return (
+      <div>
+       
+        <button
+          onClick={() => this.props.pathParams.history.push('/name/niraj')}
+        >
+          Submit
+        </button>
+      </div>
     )
   }
 }

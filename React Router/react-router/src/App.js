@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 
 import Niraj from './Niraj'
+import Button from './Button'
 
 import { Route, Switch, Link } from 'react-router-dom'
 
@@ -17,6 +18,7 @@ const HelloWorld = () => <h1>Hello World</h1>
 function App() {
   return (
     <div className="App">
+      <Button />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -34,6 +36,10 @@ function App() {
             render={(routeProps) => (
               <Niraj name={routeProps.match.params.name} />
             )}
+          />
+          <Route
+            path="/name/:name/age/:age"
+            render={(routeProps) => <Niraj pathParams={routeProps} />}
           />
         </Switch>
       </header>
