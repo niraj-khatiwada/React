@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import './App.css'
 
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 import DogList from './DogList'
 import Dog from './Dog'
+import Navbar from './Navbar'
 
 import one from './Images/one.jpg'
 import two from './Images/two.jpg'
@@ -43,12 +44,43 @@ class App extends Component {
           'Tubby loves eating food.',
         ],
       },
+      {
+        name: 'Grumpy',
+        age: 4,
+        src: three,
+        facts: [
+          'Tubby is not the brightest dog',
+          'Tubby does not like walks or exercise.',
+          'Tubby loves eating food.',
+        ],
+      },
+      {
+        name: 'Tiger',
+        age: 4,
+        src: three,
+        facts: [
+          'Tubby is not the brightest dog',
+          'Tubby does not like walks or exercise.',
+          'Tubby loves eating food.',
+        ],
+      },
+      {
+        name: 'Puerto',
+        age: 4,
+        src: three,
+        facts: [
+          'Tubby is not the brightest dog',
+          'Tubby does not like walks or exercise.',
+          'Tubby loves eating food.',
+        ],
+      },
     ],
   }
 
   render() {
     return (
       <div className="App">
+        <Navbar dogList={this.props.dogs} />
         <Switch>
           <Route
             exact
@@ -64,6 +96,7 @@ class App extends Component {
               <Dog dogList={this.props.dogs} routeProps={routeProps} />
             )}
           />
+          <Redirect to="/dogs" />
         </Switch>
       </div>
     )

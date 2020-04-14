@@ -9,7 +9,6 @@ class Dog extends Component {
         return dog
       }
     })[0]
-    console.log(selectDog)
     return (
       <div className="Dog row">
         <div className="col-md-2 Dog-card" style={{ padding: '0' }}>
