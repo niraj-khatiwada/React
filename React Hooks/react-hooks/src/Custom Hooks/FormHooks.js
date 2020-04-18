@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export default function useFormHooks(initValue = '') {
   const [currStateValue, setStateValue] = useState(initValue)
