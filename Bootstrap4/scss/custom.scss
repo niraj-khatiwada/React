@@ -1,0 +1,7 @@
+$theme-colors: (
+  'primary': #675678,
+  'danger': green,
+);
+
+$grid-columns: 20;
+@import '../Bootstrap/bootstrap-4.4.1/scss/bootstrap.scss';
