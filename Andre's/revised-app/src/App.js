@@ -5,7 +5,7 @@ import Food from './Food'
 
 class App extends Component {
   state = {
-    btn: false,
+    btn: true,
   }
   componentDidMount() {
     console.log('COmponent Did Mount')
@@ -13,14 +13,17 @@ class App extends Component {
   componentDidUpdate(pp, ps) {
     console.log('Component Did update', pp, ps)
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState)
-    return false
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log(nextProps, nextState)
+  //   return false
+  // }
+  componentWillUnmount(pp, ps) {
+    console.log('Food is unmounted', pp, ps)
   }
   render() {
     return (
       <div className="App">
-        <Food name="pizza" />
+        {this.state.btn ? <Food name="pizza" /> : null}
         <button onClick={() => this.setState({ btn: !this.state.btn })}>
           Click
         </button>
