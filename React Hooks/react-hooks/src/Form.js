@@ -8,13 +8,15 @@ export default function Form() {
     async function getPoke() {
       const res = await axios
         .get(`https://pokeapi.co/api/v2/pokemon/${num}`)
-        .then((r) => setpokeName(r.data.name))
+        .then((r) => setpokeName(r.data))
+    //   console.log(res.data)
+      //   setpokeName(res.data)
     }
     getPoke()
-  })
+  }, [num])
   return (
     <div>
-      <h1>{pokeName}</h1>
+      <h1>{pokeName.name}</h1>
       <select value={num} onChange={(evt) => setNum(evt.target.value)}>
         <option value="1">1</option>
         <option value="2">2</option>

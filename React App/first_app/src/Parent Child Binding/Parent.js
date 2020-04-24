@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Parent.css'
 
-import uuid from 'uuid/v4'
+import { v4 as uuid } from 'uuid'
 
 import Child from './Child'
 
